@@ -10,4 +10,4 @@ addFive :: Integer -> Integer
 addFive x = 5 + x
 
 sempreSix :: Integer -> Integer
-sempreSix x = 6
+sempreSix _ = 6
