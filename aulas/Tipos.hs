@@ -7,13 +7,13 @@ module Tipos where
 -- Types: [Char]; (Int, Int); Int -> Int
 
 data Weekday = Mon
-	     | Tue
-	     | Wed
-	     | Thu
-	     | Fri
-	     | Sat
-	     | Sun
-	     deriving (Show)
+             | Tue
+             | Wed
+             | Thu
+             | Fri
+             | Sat
+             | Sun
+             deriving (Show)
 
 nextDay :: Weekday -> Weekday
 nextDay Mon = Tue
