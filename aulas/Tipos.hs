@@ -13,7 +13,26 @@ data Weekday = Mon
              | Fri
              | Sat
              | Sun
-             deriving (Show)
+
+instance (Eq Weekday) where
+  Mon == Mon = True
+  Tue == Tue = True
+  Wed == Wed = True
+  Thu == Thu = True
+  Fri == Fri = True
+  Sat == Sat = True
+  Sun == Sun = True
+  _   == _   = False
+
+instance (Show Weekday) where
+  show Mon = "Mon"
+  show Tue = "Tue"
+  show Wed = "Wed"
+  show Thu = "Thu"
+  show Fri = "Fri"
+  show Sat = "Sat"
+  show Sun = "Sun"
+
 
 nextDay :: Weekday -> Weekday
 nextDay Mon = Tue
