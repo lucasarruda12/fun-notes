@@ -27,3 +27,7 @@ describe xs
     | length xs < 3        = "small"
     | length xs < 6        = "big"
     | otherwise         = "too big"
+
+MyTake :: Int -> [a] -> [a]
+MyTake 0 _ = []
+My take x (y : ys) = y : (take x-1 ys)

@@ -13,6 +13,7 @@ data Weekday = Mon
              | Fri
              | Sat
              | Sun
+             deriving ( Enum )
 
 instance (Eq Weekday) where
   Mon == Mon = True
@@ -32,7 +33,6 @@ instance (Show Weekday) where
   show Fri = "Fri"
   show Sat = "Sat"
   show Sun = "Sun"
-
 
 nextDay :: Weekday -> Weekday
 nextDay Mon = Tue
