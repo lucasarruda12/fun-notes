@@ -20,13 +20,13 @@ type Number = Double
 type Row = [Number]
 type Col = [Number]
 
-data Matrix2x2 = Undefined
+data Matrix2x2 = Matrix2x2 Number Number Number Number
 
 instance Show Matrix2x2 where
-    show = undefined
+    show (Matrix2x2 a1 a2 b1 b2) = "| " ++  show a1 ++ " " ++ show a2 ++ " |\n| " ++ show b1 ++ " " ++ show b2 ++ " |"
 
 instance Eq Matrix2x2 where
-    (==)  = undefined
+    (Matrix2x2 a1 b1 c1 d1) == (Matrix2x2 a2 b2 c2 d2) = (a1 == a2) && (b1 == b2) && (c1 == c2) && (d1 == d2)
 
 instance Num Matrix2x2 where
     (+) = undefined
@@ -36,23 +36,31 @@ instance Num Matrix2x2 where
     signum = undefined
     fromInteger = undefined
 
+map :: (Number -> Number) -> Matrix2x2 -> Matrix2x2
+map f (Matrix2x2 a b c d) = Matrix2x2 (f a) (f b) (f c) (f d)
+
+land :: Bool -> Bool -> Bool
+land True True  = True
+land _    _     = False
+
+-- [mudei isso do hw original. Sorry ~Lucas]
 -- matrix a b c d should create the matrix
--- ( a c )
--- ( b d )
+-- ( a b )
+-- ( c d )
 matrix :: Number -> Number -> Number -> Number -> Matrix2x2
-matrix = undefined
+matrix a b c d = Matrix2x2 a b c d
 
 zero :: Matrix2x2
-zero = undefined
+zero = matrix 0 0 0 0
 
 identity :: Matrix2x2
-identity = undefined
+identity = matrix 1 1 1 1
 
 rows :: Matrix2x2 -> [Row]
-rows = undefined
+rows (Matrix2x2 a b c d) = [[a, b], [c, d]]
 
 cols :: Matrix2x2 -> [Col]
-cols = undefined
+cols (Matrix2x2 a b c d) = [[a, c], [b, d]]
 
 getElem :: (Int,Int) -> Matrix2x2 -> Number
 getElem = undefined
