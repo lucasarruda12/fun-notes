@@ -1,7 +1,7 @@
 module ExFromWhile where
 
 fromWhile :: Int -> (a -> Bool) -> [a] -> [a]
-fromWhile n f = takeWhile f . drop n
+fromWhile n p = takeWhile p . drop n
 
 fromFor :: Int -> Int -> [a] -> [a]
 fromFor n m = take m . drop n
@@ -10,4 +10,4 @@ fromTo :: Int -> Int -> [a] -> [a]
 fromTo n m = take (m-1) . drop n
 
 fromToThat :: Int -> Int -> (a -> Bool) -> [a] -> [a]
-fromToThat n m f = filter f . fromTo n m
+fromToThat n m p = filter p . fromTo n m
